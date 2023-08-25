@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head><!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <title>Push pre-permission</title>
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "y24ndSgnTjChTVgc7sOAEocA4dpKyo8q";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("y24ndSgnTjChTVgc7sOAEocA4dpKyo8q");
+                analytics.page();
+            }
+        }();
+    </script>
+    <style type="text/css">
+        .center-horizontal {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .center {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .h2-style {
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+            font-family: 'montserrat_black';
+            line-height: normal;
+            letter-spacing: normal;
+            color: black;
+            font-size: 24px;
+        }
+
+        .ok-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            letter-spacing: 0;
+            width: 100%;
+            border-radius: 6px;
+            height: 44px;
+            margin-top: 0px;
+            font-family: 'montserrat_black';
+            text-decoration: none;
+            background: linear-gradient(90deg, #55FC99 0%, #00DBAF 100%);
+            border: none;
+            border: 1px solid transparent;
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="line-height: 1.5; background: white;height:100vh">
+    <div class="center">
+        <div class="center-horizontal"><img
+                src="https://res.cloudinary.com/dmkrvzitv/image/upload/v1584627701/disqueor_3x.png"
+                style="width: 80px; height: 81px;" /></div>
+
+        <div style="background: #FFFFFF; padding: 20px; border-radius: 0 6px; text-align: center;"><!-- Title -->
+            <h2 class="h2-style">WELCOME TO THE STUDIO!</h2>
+            <!-- Content -->
+
+            <h4
+                style="margin-top: 15px; margin-bottom: 38px; font-size: 16px; font-family: 'source-sans-pro'; font-weight: 500; line-height: 21px; letter-spacing: normal; color: #727272;">
+                To succeed your first video, put your earphone with a mic, film yourself in vertical mode and make sure
+                there is enough light around you ! Use the autocue in order to see your lyrics and modify them directly.
+                Add filters or voice effects and voil&agrave; ! The studio has no longer any secrets for you, you&#39;re
+                ready for a session!</h4>
+            <!-- Buttons -->
+
+            <div><a class="ok-button" href="keakr://">OK, LET&#39;S GO </a></div>
+        </div>
+    </div>
+</body>
+
+</html>

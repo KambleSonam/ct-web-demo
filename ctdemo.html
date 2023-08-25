@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript">
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
+        // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+        clevertap.account.push({ "id": "W9R-486-4W5Z" });
+        clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
+        clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
+        (function () {
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            wzrk.async = true;
+            wzrk.src = 'https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@task/SDK-3189/add_debug_flag/clevertap.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wzrk, s);
+        })();
+        sessionStorage['WZRK_D'] = "";
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function onClickOUL() {
+            clevertap.onUserLogin.push({
+                Site: {
+                    Email: `qw${Math.ceil(
+                        Math.random() * 10002312
+                    )}@gmail.com`
+                    // Email: "799726789@gmail.com"
+                }
+            });
+            getLS();
+        }
+
+        function onClickOULSame() {
+            let value = document.getElementById("constantOUL").value;
+            clevertap.onUserLogin.push({
+                Site: {
+                    // Email: `${Math.ceil(Math.random() * 100012)}@gmail.com`
+                    Identity: `${value}`
+                }
+            });
+        }
+        function onClickEvent() {
+            let value = document.getElementById("constantEvent").value;
+            clevertap.event.push(`${value}`);
+        }
+
+        function onClickOULIdentitySame() {
+            let value = document.getElementById("constantOULIdentity").value;
+            clevertap.onUserLogin.push({
+                Site: {
+                    // Email: `${Math.ceil(Math.random() * 100012)}@gmail.com`
+                    Identity: `${value}`
+                }
+            });
+            getLS();
+        }
+
+        function onClickPP() {
+            clevertap.profile.push({
+                Site: {
+                    Email: `as${Math.ceil(
+                        Math.random() * 10002320
+                    )}@gmail.com`
+                }
+            });
+            getLS();
+        }
+
+        function onClickPPSame() {
+            let value = document.getElementById("constantPP").value;
+            clevertap.profile.push({
+                Site: {
+                    Email: `${value}@gmail.com`
+                }
+            });
+        }
+
+        function onClickPPIdentitySame() {
+            let value = document.getElementById("constantPPIdentity").value;
+            clevertap.profile.push({
+                Site: {
+                    Identity: `${value}`
+                }
+            });
+        }
+
+        function onClickEP() {
+            clevertap.event.push("Product Eaten");
+            clevertap.event.push("Message Received");
+            clevertap.event.push("Message Viewed");
+            clevertap.event.push("Product add to cart");
+            getLS();
+        }
+
+        function pushSelectedEvents() {
+            var adc = document.getElementById("adc").checked;
+            var ps = document.getElementById("ps").checked;
+            var pv = document.getElementById("pv").checked;
+            var amee = document.getElementById("amee").checked;
+            var amee1 = document.getElementById("amee1").checked;
+            var ameeatc = document.getElementById("amee-atc").checked;
+
+            if (!adc && !ps && !pv && !amee && !amee1 && !ameeatc) {
+                alert("Select atleast one event");
+                return;
+            }
+            if (adc) clevertap.event.push("Added to Cart");
+            if (ps) clevertap.event.push("Product Sold");
+            if (pv) clevertap.event.push("Viewed");
+            if (amee) clevertap.event.push("Amee");
+            if (amee1) clevertap.event.push("Amee-01");
+            if (ameeatc) clevertap.event.push("Added To Cart - Amee");
+
+            document.getElementById("adc").checked = false;
+            document.getElementById("ps").checked = false;
+            document.getElementById("pv").checked = false;
+            document.getElementById("amee").checked = false;
+            document.getElementById("amee1").checked = false;
+            document.getElementById("amee-atc").checked = false;
+            getLS();
+        }
+
+        function getLS() {
+            var LRU_CACHE = decodeURIComponent(localStorage["WZRK_X"]);
+            var WZRK_K = decodeURIComponent(localStorage["WZRK_K"]);
+            var WZRK_G = decodeURIComponent(localStorage["WZRK_G"]);
+            var WZRK_EV = decodeURIComponent(localStorage["WZRK_EV"]);
+            var WZRK_ARP = decodeURIComponent(localStorage["WZRK_ARP"]);
+
+            var data = `<div>WZRK_K: ${WZRK_K}</div><br /><div>WZRK_G: ${WZRK_G}</div><br /><div>LRU_CAHCE: ${LRU_CACHE}</div><br /><div>WZRK_EV: ${WZRK_EV}</div><br /><div>WZRK_ARP: ${WZRK_ARP}</div>`;
+
+            document.getElementById("lsData").innerHTML = data;
+        }
+
+        function clearLS() {
+            localStorage.clear();
+            getLS();
+        }
+
+        function getProfile() {
+            var customerType = clevertap.profile.getAttribute("Customer type");
+            console.log(customerType);
+        }
+    </script>
+    <h1>Clevertap Web SDK Demo</h1>
+    <hr />
+    <p>On User Login</p>
+    <input type="text" id="constantOUL" class="textInput" placeholder="Add user identity" />
+    <button onclick="onClickOULSame()" class="inputBtn">Login</button>
+    <br />
+    <hr />
+    <p>Profile Push</p>
+    <input type="text" id="constantPP" class="textInput" placeholder="Add profile identity" />
+    <button onclick="onClickPPSame()" class="inputBtn">Profile Push</button>
+    <hr />
+    <p>Event Push</p>
+    <input type="text" id="constantEvent" class="textInput" />
+    <button onclick="onClickEvent()" class="inputBtn">Event Push</button>
+    <br />
+    <hr />
+</body>
+
+</html>

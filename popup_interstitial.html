@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .banner-wrapper {
+            border: 2px solid #FFF;
+        }
+
+        .CT_InterstitialClose {
+            cursor: pointer;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 2147483647;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            -webkit-appearance: none;
+            line-height: 22px;
+            background: #353535;
+            border: 2px solid #fff;
+            border-radius: 100%;
+            color: #fff
+        }
+
+        .close {
+            position: absolute;
+            right: 40px;
+            top: 8px;
+            width: 24px;
+            height: 24px;
+            background-color: #D4376D;
+            border-radius: 50%;
+        }
+
+        .close:before,
+        .close:after {
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            content: ' ';
+            height: 14px;
+            width: 2px;
+            background-color: #fff;
+        }
+
+        .close:before {
+            transform: rotate(45deg);
+        }
+
+        .close:after {
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner-wrapper">
+        <a onclick="closePopup()" href="#" class="close"></a>
+        <span onclick="parent.$WZRK_WR.closeIframe('1658751710','intentPreview');" class="CT_InterstitialClose">×</span>
+        <div onclick="deepLink()" style="cursor: pointer;">
+            <img src="https://s7ap1.scene7.com/is/image/Targetaxisbank/PL_CCheck_June23_Desktop_750x400?fit=constrain&hei=400&wid=750"
+                alt="Trulli">
+        </div>
+    </div>
+    <script>
+        function deepLink() {
+            location.replace("https://omnist.axisbank.co.in/axisomnidev2/#/99/DEEPLINK/OPENRD/bWVudUtleT1NOkZEUkQmdHlwZT1SRCZpc0RlZXBMaW5rPXRydWU=")
+        }
+        function closePopup() {
+            var intentOpacityDiv = parent.document.getElementById("intentOpacityDiv"); if (intentOpacityDiv) { intentOpacityDiv.remove(); } var intentPreview = parent.document.getElementById("intentPreview"); if (intentPreview) { intentPreview.remove(); }
+        }
+    </script>
+</body>
+
+</html>

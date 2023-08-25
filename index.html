@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script>
+        window.dataLayer = window.dataLayer || [];
+    </script> -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Google Tag Manager -->
+    <!-- <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PGGWXRQ');</script> -->
+    <!-- End Google Tag Manager -->
+    <title>BMI Calculator</title>
+    <!-- <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "y24ndSgnTjChTVgc7sOAEocA4dpKyo8q";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("y24ndSgnTjChTVgc7sOAEocA4dpKyo8q");
+                analytics.page();
+            }
+        }();
+    </script> -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGGWXRQ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <p><label>Height in CM: </label><input type="text" id="height"></p>
+            <p><label>Weight in KG: </label><input type="text" id="weight"></p>
+            <button onclick="myFunction()">Calculate</button>
+            <div id="results"></div>
+            <div id="weight-guide">
+                <h3>BMI Weight Guide</h3>
+                <p>Under Weight = Less than 18.6</p>
+                <p>Normal Range = 18.6 and 24.9</p>
+                <p>Overweight = Greater than 24.9</p>
+            </div>
+        </form>
+
+    </div>
+    <script type="text/javascript">
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
+        // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+        clevertap.account.push({ "id": "W9R-486-4W5Z" });
+        clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
+        clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
+        (function () {
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            // wzrk.src = 'clevertap.js'
+            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+            wzrk.async = true;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wzrk, s);
+        })();
+
+        sessionStorage['WZRK_D'] = "";
+        // clevertap.onUserLogin.push({
+        //     "Site": {
+        //         "Name": "Yono",
+        //         "Identity": "INyono26",
+        //     }
+        // })
+    </script>
+    <!-- <script>
+        // clevertap.onUserLogin.push({
+        //     "Site": {
+        //         "Name": "Frodo",
+        //         "Email": "frodo1mon@mytest.com",
+        //         "Identity": "frodo1mon2023",
+        //         "Custom_Tag": "Champion2"
+        //     }
+        // })
+        clevertap.onUserLogin.push({
+            "Site": {
+                "Name": "Bilbo",
+                "Email": "bilbo2tue@mytest.com",
+                "Identity": "bilbo2tue2023",
+                "Custom_Tag": "Champion2"
+            }
+        })
+    </script> -->
+    <scripts src="clevertap_sw.js"></scripts>
+</body>
+
+</html>
