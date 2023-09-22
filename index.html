@@ -29,6 +29,43 @@
             }
         }();
     </script> -->
+    <script type="text/javascript">
+
+        //configure the SDK
+        window.mParticle = {
+            config: {
+                isDevelopmentMode: true,
+                identifyRequest: {
+                    userIdentities: {
+                        email: 'email@example.com',
+                        customerid: '123456',
+                    },
+                },
+                identityCallback: function (result) {
+                    // Do something once an identity call has been made.
+                    // For more information, see https://docs.mparticle.com/developers/sdk/web/idsync/#sdk-initialization-and-identify
+                    console.log(result);
+                },
+                dataPlan: {
+                    planId: 'my_plan_id',
+                    planVersion: 2
+                }
+            },
+        };
+
+        //load the SDK
+        (
+            function (t) { window.mParticle = window.mParticle || {}; window.mParticle.EventType = { Unknown: 0, Navigation: 1, Location: 2, Search: 3, Transaction: 4, UserContent: 5, UserPreference: 6, Social: 7, Other: 8 }; window.mParticle.eCommerce = { Cart: {} }; window.mParticle.Identity = {}; window.mParticle.config = window.mParticle.config || {}; window.mParticle.config.rq = []; window.mParticle.config.snippetVersion = 2.3; window.mParticle.ready = function (t) { window.mParticle.config.rq.push(t) }; var e = ["endSession", "logError", "logBaseEvent", "logEvent", "logForm", "logLink", "logPageView", "setSessionAttribute", "setAppName", "setAppVersion", "setOptOut", "setPosition", "startNewSession", "startTrackingLocation", "stopTrackingLocation"]; var o = ["setCurrencyCode", "logCheckout"]; var i = ["identify", "login", "logout", "modify"]; e.forEach(function (t) { window.mParticle[t] = n(t) }); o.forEach(function (t) { window.mParticle.eCommerce[t] = n(t, "eCommerce") }); i.forEach(function (t) { window.mParticle.Identity[t] = n(t, "Identity") }); function n(e, o) { return function () { if (o) { e = o + "." + e } var t = Array.prototype.slice.call(arguments); t.unshift(e); window.mParticle.config.rq.push(t) } } var dpId, dpV, config = window.mParticle.config, env = config.isDevelopmentMode ? 1 : 0, dbUrl = "?env=" + env, dataPlan = window.mParticle.config.dataPlan; dataPlan && (dpId = dataPlan.planId, dpV = dataPlan.planVersion, dpId && (dpV && (dpV < 1 || dpV > 1e3) && (dpV = null), dbUrl += "&plan_id=" + dpId + (dpV ? "&plan_version=" + dpV : ""))); var mp = document.createElement("script"); mp.type = "text/javascript"; mp.async = true; mp.src = ("https:" == document.location.protocol ? "https://jssdkcdns" : "http://jssdkcdn") + ".mparticle.com/js/v2/" + t + "/mparticle.js" + dbUrl; var c = document.getElementsByTagName("script")[0]; c.parentNode.insertBefore(mp, c) }
+        )("us1-d6f4fe26d664924ab97c87f951cc5ea8");
+    </script>
+    <style>
+        #myHeader {
+            background-color: lightblue;
+            color: black;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,65 +73,10 @@
     <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGGWXRQ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
-    <div class="container">
-        <h1>BMI Calculator</h1>
-        <form>
-            <p><label>Height in CM: </label><input type="text" id="height"></p>
-            <p><label>Weight in KG: </label><input type="text" id="weight"></p>
-            <button onclick="myFunction()">Calculate</button>
-            <div id="results"></div>
-            <div id="weight-guide">
-                <h3>BMI Weight Guide</h3>
-                <p>Under Weight = Less than 18.6</p>
-                <p>Normal Range = 18.6 and 24.9</p>
-                <p>Overweight = Greater than 24.9</p>
-            </div>
-        </form>
+    <h2>Hello Sonam</h2>
+    <p>Clevertap mParticle Test using script</p>
 
-    </div>
-    <script type="text/javascript">
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
-        // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ "id": "W9R-486-4W5Z" });
-        clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
-        clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
-        (function () {
-            var wzrk = document.createElement('script');
-            wzrk.type = 'text/javascript';
-            // wzrk.src = 'clevertap.js'
-            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
-            wzrk.async = true;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wzrk, s);
-        })();
-
-        sessionStorage['WZRK_D'] = "";
-        // clevertap.onUserLogin.push({
-        //     "Site": {
-        //         "Name": "Yono",
-        //         "Identity": "INyono26",
-        //     }
-        // })
-    </script>
-    <!-- <script>
-        // clevertap.onUserLogin.push({
-        //     "Site": {
-        //         "Name": "Frodo",
-        //         "Email": "frodo1mon@mytest.com",
-        //         "Identity": "frodo1mon2023",
-        //         "Custom_Tag": "Champion2"
-        //     }
-        // })
-        clevertap.onUserLogin.push({
-            "Site": {
-                "Name": "Bilbo",
-                "Email": "bilbo2tue@mytest.com",
-                "Identity": "bilbo2tue2023",
-                "Custom_Tag": "Champion2"
-            }
-        })
-    </script> -->
-    <scripts src="clevertap_sw.js"></scripts>
+    <h1 id="myHeader">Clevertap</h1>
 </body>
 
 </html>
