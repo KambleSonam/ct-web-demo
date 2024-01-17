@@ -4,9 +4,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type="text/javascript">
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-30', token: '012-b64' };
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ "id": "468-RZW-ZK6Z" });
+        clevertap.account.push({ "id": "WRK-485-456Z" });
         clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
         clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
         (function () {
@@ -163,6 +163,7 @@
     <input type="text" id="constantEvent" class="textInput" />
     <button onclick="onClickEvent()" class="inputBtn">Event Push</button>
     <br />
+    <button id='bell-selector'>Inbox</button>
     <hr />
 </body>
 
