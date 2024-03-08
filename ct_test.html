@@ -13,9 +13,9 @@
         }();
     </script> -->
     <script type="text/javascript">
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ "id": "W9R-486-4W5Z" });
+        clevertap.account.push({ "id": "WRK-485-456Z" });
         clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
         clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
         clevertap.spa = true;
@@ -36,7 +36,7 @@
 <body>
     <script>
         if (clevertap) {
-            clevertap.event.push('aditi')
+            clevertap.event.push('Product Eaten')
         }
     </script>
     <script type="text/javascript">
