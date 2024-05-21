@@ -12,7 +12,33 @@
             }
         }();
     </script> -->
-    <script type="text/javascript">
+    <script defer>
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
+        // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+        clevertap.account.push({ id: "WRK-485-456Z" });
+        clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
+        clevertap.privacy.push({ useIP: true }); //set the flag to true, if the user agrees to share their IP data
+        if (true) {
+            setTimeout(clevertap.notifications.push({
+                "titleText": "Would you like to receive Push Notifications?",
+                "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
+                "okButtonText": "Ok",
+                "rejectButtonText": "Cancel",
+                "okButtonColor": "#F28046",
+                "askAgainTimeInSeconds": 5,
+                "serviceWorkerPath": "./clevertap_sw.js"
+            }), 4000);
+        }
+        (function () {
+            var wzrk = document.createElement("script");
+            wzrk.type = "text/javascript";
+            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+            wzrk.defer = true;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(wzrk, s);
+        })();
+    </script>
+    <!-- <script type="text/javascript">
         var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
         clevertap.account.push({ "id": "WRK-485-456Z" });
@@ -22,15 +48,22 @@
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
-            wzrk.async = true;
-            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
-            // wzrk.src = 'clevertap.js'
+            wzrk.defer = true;
+            // wzrk.src = 'https://www.unpkg.com/clevertap-web-sdk@1.6.10/clevertap.min.js';
+            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js'
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
         sessionStorage['WZRK_D'] = "";
+
+        clevertap.onUserLogin.push({
+            Site: {
+                Email: 'sonam@clevertap.com'
+                // Email: "799726789@gmail.com"
+            }
+        });
         // clevertap.event.push('aditi')
-    </script>
+    </script> -->
 </head>
 
 <body>
