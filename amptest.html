@@ -38,9 +38,10 @@
 
         function initializeCleverTap() {
             console.log("Initializing CleverTap...");
-            clevertap.setLogLevel(3);
+            clevertap.setLogLevel(4);
             if (clevertap.getAccountID() && clevertap.getCleverTapID()) {
                 const pdpVar = clevertap.defineVariable(clevertapVariable, false);
+                clevertap.syncVariables();
                 clevertap.fetchVariables(
                     // Success callback function
                     () => {
