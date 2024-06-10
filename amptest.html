@@ -1,55 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BMI Calculator</title>
-    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <title>foundit</title>
 </head>
 
 <body>
-    <!-- <div class="container">
-        <h1>BMI Calculator</h1>
-        <form>
-            <p><label>Height in CM: </label><input type="text" id="height"></p>
-            <p><label>Weight in KG: </label><input type="text" id="weight"></p>
-            <button onclick="myFunction()">Calculate</button>
-            <div id="results"></div>
-            <div id="weight-guide">
-                <h3>BMI Weight Guide</h3>
-                <p>Under Weight = Less than 18.6</p>
-                <p>Normal Range = 18.6 and 24.9</p>
-                <p>Overweight = Greater than 24.9</p>
-            </div>
-        </form>
-
-    </div> -->
-    <amp-script layout="container" src="https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js">
-        <button on="tap:my-script.toggleVisibility">Toggle Visibility</button>
-        <amp-img id="my-script" src="/my-image.jpg" layout="responsive" width="600" height="400" hidden></amp-img>
-    </amp-script>
-    <script>
-        function myScript() {
-            console.log('Inside my script')
+    <script type="text/javascript">
+        var clevertapAccountId = "468-RZW-ZK6Z";
+        var clevertapToken = "012-b64";
+        var clevertapRegion = "sk1-staging-30";
+        var clevertapVariable = "PDP_FEATURE_PROFILE";
+        var serviceOldUrl = "http://qa1.foundit.hk/career-services/career-booster";
+        var serviceNewUrl = "http://qa1.foundit.hk/career-services/career-booster_new";
+        var clevertap = {
+            event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: clevertapRegion, token: clevertapToken
         };
-    </script>
+        clevertap.account.push({ "id": clevertapAccountId });
+        clevertap.privacy.push({ optOut: false }); // set the flag to true, if the user of the device opts out of sharing their data
+        clevertap.privacy.push({ useIP: false }); // set the flag to true, if the user agrees to share their IP data
 
-
-    <!-- <script type="text/javascript">
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: "eu1" };
-        clevertap.account.push({ id: "W9R-486-4W5Z" });
-        clevertap.privacy.push({ optOut: false });
-        clevertap.privacy.push({ useIP: true });
         (function () {
-            var a = document.createElement("script");
-            a.type = "text/javascript";
-            a.async = !0;
-            a.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
-            var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b)
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            wzrk.async = true;
+            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+            wzrk.onload = function () {
+                console.log("CleverTap script loaded successfully.");
+                initializeCleverTap();
+            };
+            wzrk.onerror = function () {
+                console.error("Failed to load the CleverTap script.");
+            };
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wzrk, s);
         })();
-    </script> -->
+
+        function initializeCleverTap() {
+            console.log("Initializing CleverTap...");
+            clevertap.setLogLevel(3);
+            if (clevertap.getAccountID() && clevertap.getCleverTapID()) {
+                const pdpVar = clevertap.defineVariable(clevertapVariable, false);
+                clevertap.fetchVariables(
+                    // Success callback function
+                    () => {
+                        console.log("Fetch successful");
+                        const defaultPdpABTestVar = pdpVar.getdefaultValue();
+                        const pdpABTestVar = pdpVar.getValue(); // returns current value
+                        console.log("defaultPdpABTestVar: ", defaultPdpABTestVar);
+                        console.log("pdpABTestVar: ", pdpABTestVar);
+                        if (pdpABTestVar) {
+                            console.log('Value is true')
+                        } else {
+                            console.log('Value is false')
+                        }
+                        // //var finalUrl = pdpVar.getValue() ? serviceNewUrl : serviceOldUrl;
+                        // console.log("pdp.getValue : ", pdpVar.getValue());
+                        // var finalUrl = pdpVar.getValue() ? serviceNewUrl : serviceOldUrl;
+                        // //var finalUrl = true ? serviceNewUrl : serviceOldUrl;
+                        // finalUrl += finalUrl.includes('?') ? '&isFinal=true' : '?isFinal=true';
+                        // console.log("finalUrl: ", finalUrl);
+                        // window.onload = function () {
+                        //     window.location.href = finalUrl;
+                        // };
+                    }
+                );
+                // const valueChangedCallback = (changedVariable) => {
+                //     console.log(`Value changed for variable '${changedVariable.getValue()}'`);
+                // };
+
+                // pdpVar.addValueChangedCallback(valueChangedCallback);
+            } else {
+                console.error("CleverTap object is not properly defined.");
+            }
+        }
+    </script>
+    <div>Hello Sonam</div>
 </body>
 
 </html>
