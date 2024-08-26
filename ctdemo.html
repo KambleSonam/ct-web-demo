@@ -13,31 +13,37 @@
         }();
     </script> -->
     <script type="text/javascript">
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ "id": "WRK-485-456Z" });
+        clevertap.account.push({ "id": "W9R-486-4W5Z" });
         clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
         clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
         clevertap.spa = true;
+        clevertap.notificationCallback = function (msg) {
+            console.log('msg is ', JSON.stringify(msg));            //your custom rendering implementation here
+        };
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            // wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
-            wzrk.src = 'clevertap.js'
+            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+            // wzrk.src = 'clevertap.js'
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
         sessionStorage['WZRK_D'] = "";
         // clevertap.event.push('aditi')
+        function ct_func_test() {
+            console.log('Hello Sonam')
+            console.log('This is js function test')
+        }
     </script>
 </head>
 
 <body>
     <script>
-        if (clevertap) {
-            clevertap.event.push('aditi')
-        }
+
+
     </script>
     <script type="text/javascript">
         function onClickOUL() {

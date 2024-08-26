@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/leanplum-sdk@1.11.0/dist/leanplum.min.js"></script>
+
+    <script>
+        Leanplum.setAppIdForDevelopmentMode("app_Oo9cgh5Ko66xQi33jAD34kGDuxhbJovd9rUesRzGMIw", "dev_l16AAZwW97HBt6NH75rsBCUVsVFRh93LT1MdDQ1FNhI");
+        Leanplum.setDeviceId('app_Oo9cgh5Ko66xQi33jAD34kGDuxhbJovd9rUesRzGMIw' + "_" + 'sonam');
+        window.clevertap = window.clevertap || {
+            event: [],
+            profile: [],
+            account: [],
+            onUserLogin: [],
+            notifications: [],
+            privacy: []
+        };
+        window.clevertap.privacy.push({
+            useIP: !0
+        });
+        Leanplum.start(function (success) {
+            console.log('Success: ' + success);
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Leanplum Clevertap Web SDK Demo</h1>
+    <hr />
+</body>
+
+</html>

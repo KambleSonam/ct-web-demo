@@ -12,29 +12,18 @@
             }
         }();
     </script> -->
-    <script defer>
-        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
+    <script type="text/javascript">
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ id: "WRK-485-456Z" });
+        clevertap.account.push({ "id": 'W9R-486-4W5Z' });
         clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
-        clevertap.privacy.push({ useIP: true }); //set the flag to true, if the user agrees to share their IP data
-        if (true) {
-            setTimeout(clevertap.notifications.push({
-                "titleText": "Would you like to receive Push Notifications?",
-                "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
-                "okButtonText": "Ok",
-                "rejectButtonText": "Cancel",
-                "okButtonColor": "#F28046",
-                "askAgainTimeInSeconds": 5,
-                "serviceWorkerPath": "./clevertap_sw.js"
-            }), 4000);
-        }
+        clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
         (function () {
-            var wzrk = document.createElement("script");
-            wzrk.type = "text/javascript";
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            wzrk.async = true;
             wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
-            wzrk.defer = true;
-            var s = document.getElementsByTagName("script")[0];
+            var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
     </script>
