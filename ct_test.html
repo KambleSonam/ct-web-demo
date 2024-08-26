@@ -194,13 +194,14 @@
 
         function enablePush() {
             clevertap.notifications.push({
-                "titleText": "Would you like to receive Push Notifications?",
-                "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
-                "okButtonText": "Ok",
-                "rejectButtonText": "Cancel",
-                "okButtonColor": "#F28046",
-                "askAgainTimeInSeconds": 5,
-                "serviceWorkerPath": "./clevertap_sw.js"
+                // "titleText": "Would you like to receive Push Notifications?",
+                // "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
+                // "okButtonText": "Ok",
+                // "rejectButtonText": "Cancel",
+                // "okButtonColor": "#F28046",
+                // "askAgainTimeInSeconds": 5,
+                // "serviceWorkerPath": "./clevertap_sw.js"
+                "skipDialog": true
             });
         }
     </script>
