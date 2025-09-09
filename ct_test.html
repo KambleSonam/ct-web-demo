@@ -15,14 +15,14 @@
     <script type="text/javascript">
         var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [], region: 'sk1-staging-4' };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-        clevertap.account.push({ "id": 'WRK-485-456Z' });
+        clevertap.account.push({ "id": '884-5ZW-8Z7Z' });
         clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
         clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            wzrk.src = 'https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@task/WEB-3198/webpush_prompt/clevertap.js';
+            wzrk.src = 'https://static.wizrocket.com/staging/task/WEB-3937/safari_web_push/js/clevertap.min.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
@@ -193,16 +193,16 @@
         }
 
         function enablePush() {
-            // clevertap.notifications.push({
-            //     "titleText": "Would you like to receive Push Notifications?",
-            //     "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
-            //     "okButtonText": "Ok",
-            //     "rejectButtonText": "Cancel",
-            //     "okButtonColor": "#F28046",
-            //     "askAgainTimeInSeconds": 5,
-            //     "serviceWorkerPath": "clevertap_sw.js"
-            // });
-            clevertap.notifications.enable({ "swPath": "clevertap_sw.js" })
+            clevertap.notifications.push({
+                "titleText": "Would you like to receive Push Notifications?",
+                "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
+                "okButtonText": "Ok",
+                "rejectButtonText": "Cancel",
+                "okButtonColor": "#F28046",
+                "askAgainTimeInSeconds": 5,
+                "serviceWorkerPath": "clevertap_sw.js"
+            });
+            // clevertap.notifications.enable({ "swPath": "clevertap_sw.js" })
         }
     </script>
     <h1>Clevertap Web SDK Demo</h1>
