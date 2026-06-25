@@ -12,7 +12,7 @@
             }
         }();
     </script> -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
         // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
         clevertap.account.push({ "id": '884-5ZW-8Z7Z' }, 'sk1-staging-4');
@@ -22,11 +22,38 @@
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+            wzrk.src = 'https://static.clevertap.com/staging/task/ONC-551/multi_instance/js/clevertap.min.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
-    </script>
+    </script> -->
+
+<script type="text/javascript">
+    var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };                                                   
+    clevertap.account.push({ "id": '468-RZW-ZK6Z' }, 'sk1-staging-25', "wzrkt.com");
+    clevertap.privacy.push({ optOut: false });                                                                                                                  
+    clevertap.privacy.push({ useIP: false });                                                                                                                 
+                                                                                                                                                                
+    (function () {                                                                                                                                            
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = 'https://static.clevertap.com/staging/task/ONC-551/multi_instance/js/clevertap.min.js';
+                                                                                                                                                                
+        // Create additional instance after SDK loads
+        wzrk.onload = function () {                                                                                                                             
+            var ct2 = clevertap.createInstance({                                                                                                                
+                accountId: 'W9R-486-4W5Z',                                                                                                                    
+            });
+            ct2.init();                                                                                                                                         
+            ct2.privacy.push({ useIP: true });                                                                                                                  
+            ct2.setLogLevel(3);
+        };                                                                                                                                                      
+                                                                                                                                                              
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+    })();                                                                                                                                                       
+</script>
 </head>
 
 <body>
